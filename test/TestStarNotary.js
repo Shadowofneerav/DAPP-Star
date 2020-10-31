@@ -81,7 +81,7 @@ it('can add the star name and star symbol properly', async() => {
     let tokenId = 6;
     let instance = await StarNotary.deployed();
     await instance.createStar('Udacity Star!', tokenId, {from: accounts[2]});
-    assert.equal(await instance.tokenName.call(),"Udacity Star!");
+    assert.equal(await instance.name.call(),"Udacity Star!");
     assert.equal(await instance.symbol.call(),"UDC");
 });
 

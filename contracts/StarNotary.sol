@@ -14,7 +14,7 @@ contract StarNotary is ERC721 {
     // Implement Task 1 Add a name and symbol properties
     // name: Is a short name to your token
     // symbol: Is a short string like 'USD' -> 'American Dollar'
-    string public tokenName="Udacity Star!";
+    string public name="Udacity Star!";
     string public symbol="UDC";
 
     // mapping the Star with the Owner Address
@@ -68,20 +68,25 @@ contract StarNotary is ERC721 {
         //2. You don't have to check for the price of the token (star)
         //3. Get the owner of the two tokens (ownerOf(_tokenId1), ownerOf(_tokenId1)
         //4. Use _transferFrom function to exchange the tokens.
+        require(ownerOf(_tokenId1) == msg.sender || ownerOf(_tokenId2)==msg.sender, "You can't sale the Star you don't owned");
         address from;
         address to;
         uint256 _tokenId;
+        uint256 _othertokenId;
         if(ownerOf(_tokenId1)==msg.sender){
           from=ownerOf(_tokenId1);
           to=ownerOf(_tokenId2);
           _tokenId=_tokenId1;
+          _othertokenId=_tokenId2;
         }
         else{
           from=ownerOf(_tokenId2);
           to=ownerOf(_tokenId1);
           _tokenId=_tokenId2;
+          _othertokenId=_tokenId1;
         }
         _transferFrom(from,to,_tokenId);
+        _transferFrom(to,from,_othertokenId);
     }
 
     // Implement Task 1 Transfer Stars
@@ -89,7 +94,7 @@ contract StarNotary is ERC721 {
         //1. Check if the sender is the ownerOf(_tokenId)
         //2. Use the transferFrom(from, to, tokenId); function to transfer the Star
         require(ownerOf(_tokenId)==msg.sender);
-        _transferFrom(ownerOf(_tokenId),_to1,_tokenId);
+        transferFrom(ownerOf(_tokenId),_to1,_tokenId);
     }
 
 }

@@ -1,0 +1,27 @@
+{
+  "name": "stardapp",
+  "version": "1.0.0",
+  "description": "Truffle - 0.5.1\r openzepplin <3.0",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "openzeppelin-solidity": "^2.1.2",
+    "truffle-hdwallet-provider": "^1.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shadowofneerav/DAPP-Star.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shadowofneerav/DAPP-Star/issues"
+  },
+  "homepage": "https://github.com/Shadowofneerav/DAPP-Star#readme"
+}
